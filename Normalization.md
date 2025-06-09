@@ -24,10 +24,11 @@ Here are several factors that drive the need for normalization;
 <li>0NF —  (Not Normalized Form) requires no additional assurances except that a record has a primary key that uniquely identifies it.</li>
 <li>1NF — requires that no field has a table as its value. The original definition was even more strict: that a field value is atomic (that is — not compound). As it is with current RDBMSes, and especially PostgreSQL this presents a rather challenging requirement; let’s stick with the «no table as value» form and discuss what atomic, compound and opaque mean later.<li>
 For example if there are multiple branchname for a student, they must be converted to a single-valued attribute as shown:
+
 | ID | NAME | BRANCH NAME |
 |----|------|-------------|
 |  1 | John | CS,Civil    |  
-| 2  | Ben  | Electronics |
+|  2 | Ben  | Electronics |
 
 To
 | ID | NAME | BRANCH NAME|
@@ -39,6 +40,28 @@ To
 
 
 <li>2NF — requires that (for a compound primary key) no non-key attribute depends just on part of the primary key. In other words, non-key attributes must depend on the whole primary key. If such a partial dependency is identified, the table must be split, and both dependent attribute(s) and part of the primary key it depends upon moved to a separate table.</li>
+
+To convert a table to 2NF we decompose it into two tables as given below:
+Table 1
+|CUSTOMER ID | PRODUCT NAME|
+|------------|-------------|
+| 1          | Fan         |
+| 1          | Phone       |
+| 2          | AC          |
+| 2          | Earphones   |
+| 4          | Lamp        |
+| 4          | Fan         |
+
+Table 2
+|PRODUCT NAME | PRICE    |
+|-------------|----------|
+| Fan         | 1000     |
+| Phone       | 2000     |
+| AC          | 1500     |
+| Earphones   | 2000     |
+| Lamp        | 1000     |
+
+
 <li>3NF — requires that there is no transitive dependency (through another field depending directly on the primary key) on the primary key. This means that if the values of two or more fields consistently appear together, they should be moved to a separate table, and one of them should be made a key, so that information repetition is avoided.<li>
 <li>BCNF — Boyce-Codd Normal Form aka 3.5NF is just a bit of a stronger version of 3NF; often, a table in 3NF is also compliant with BCNF.
 It requires that no part of a primary key is functionally dependent on a non-key attribute. The difference is quite subtle — till now I have been talking about non-key attributes which are dependent on key attributes. Now it is the opposite way round.</li>
