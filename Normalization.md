@@ -63,6 +63,38 @@ Table 2
 
 
 <li>3NF — requires that there is no transitive dependency (through another field depending directly on the primary key) on the primary key. This means that if the values of two or more fields consistently appear together, they should be moved to a separate table, and one of them should be made a key, so that information repetition is avoided.<li>
+
+Suppose there is a table containing the data of students as follows:
+
+| STU_ID | STU_NAME | ZIPCODE  | STU_STATE | STU_CITY  |
+|--------|----------|----------|-----------|-----------|
+| 1      | Caren    | 201010   | UP        | Noida     |
+| 2      | Stephanie| 07223    | US        | Boston    |
+| 3      | Makena   | 60007    | US        | Chicago   |
+| 4      | Adrian   | 06369    | UK        | Norwich   |
+| 5      | Martin   | 462007   | MP        | Bhopal    |
+
+To convert this into 3NF, we decompose the relation into two tables as below.
+Table 1
+| STU_ID | STU_NAME | ZIPCODE |
+|--------|----------|---------|
+| 1      | Caren    | 201010  |
+| 2      | Stephanie| 07223   |
+| 3      | Makena   | 60007   |
+| 4      | Adrian   | 06369   |
+| 5      | Martin   | 4622007 |
+
+Table 2
+| ZIPCODE | STU_STATE | STU_CITY |
+|---------|-----------|----------|
+| 201010  | UP        | Noida    |
+| 07223   | US        | Boston   |
+| 60007   | US        | Chicago  |
+| 06369   | UK        | Norwich  |
+| 4622007 | MP        | Bhopal   |
+
+
+
 <li>BCNF — Boyce-Codd Normal Form aka 3.5NF is just a bit of a stronger version of 3NF; often, a table in 3NF is also compliant with BCNF.
 It requires that no part of a primary key is functionally dependent on a non-key attribute. The difference is quite subtle — till now I have been talking about non-key attributes which are dependent on key attributes. Now it is the opposite way round.</li>
 <li>4NF — requires that there is no multivalued dependency on non-super key attributes<li>
