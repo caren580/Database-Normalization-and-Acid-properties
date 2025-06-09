@@ -15,9 +15,12 @@ Durability ensures that once a transaction has been committed, it will remain so
 ![Properties image](ACID_PROPERTIES.webp)
 
 ## How ACID Properties Impact DBMS Design and Operation
-1. Data Integrity and Consistency
+1. Data Integrity and Consistency:
 ACID properties safeguard the data integrity of a DBMS by ensuring that transactions either complete successfully or leave no trace if interrupted. They prevent partial updates from corrupting the data and ensure that the database transitions only between valid states.
-2. Recovery and Fault Tolerance
+2. Recovery and Fault Tolerance:
 Durability ensures that even if a system crashes, the database can recover to a consistent state. Thanks to the Atomicity and Durability properties, if a transaction fails midway, the database remains in a consistent state.
-3. Concurrency Control
+3. Concurrency Control:
 ACID properties provide a solid framework for managing concurrent transactions. Isolation ensures that transactions do not interfere with each other, preventing data anomalies such as lost updates, temporary inconsistency, and uncommitted data.
+
+### conclusion
+The ACID properties in DBMS provide the backbone for maintaining data consistency, integrity, and reliability in the face of transaction failures, concurrent operations, and system crashes. In today's digital world, ACID properties ensure that database systems can handle complex transactions securely, reliably, and efficiently, which is why they remain a cornerstone of data management systems used in a variety of critical applications.
