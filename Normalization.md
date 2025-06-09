@@ -102,5 +102,24 @@ It requires that no part of a primary key is functionally dependent on a non-key
 <li>6NF — requires that a row must not contain more than one non-primary attribute in addition to a primary key. As impractical as this normal form might seem, it has its applications in e.g. data warehouses and very sparse schemas, but it is most efficient in so-called columnar storage engines. For typical OLTP, 6NF is not very practical and is too close for comfort to the dreaded EAV antipattern.</li>
 
 </ul>
+ 
+ ## Benefits of Normalization
+ #### Reduces size
+ Normalized data includes quantitatively more reliable and qualitatively significant information in the same space occupied by unnormalized data. The presence of quality data makes it easy to use, reduces retrieval processing time, offers up-to-date information for every member, and is cost-efficient.
 
+ #### Efficient Database Design
+ The visually comprehensible data division results in an efficient and simple database design. It reflects user-friendly properties, making it easier to maintain and optimize further per the newer requirements and changes.
+#### Easy Scalabiity
+With the growing business needs, the scalability of data also becomes easier. The reduced data redundancy ensures easy locating of the relevant data and subsequent upgrade of the relevant tables. It goes without impact on other unrelated aspects of the database.
+#### Streamlines Data Updates
+With easily accessible data and clear distinctions, the data update process is also seamless. It becomes less time-consuming and less prone to errors as the data needs to be updated in only one place. The possibility of missing out on the key information or repetition of data is removed. It also ensures data accuracy and quick retrieval.
+
+
+## Disadvantages of Normalization
+<ul>
+<li>Normalization can result in increased performance overhead due to the need for additional join operations and the potential for slower query execution times.</li>
+<li>Normalization can result in the loss of data context, as data may be split across multiple tables and require additional joins to retrieve.</li>
+<li>Proper implementation of normalization requires expert knowledge of database design and the normalization process.</li>
+<li>Normalization can increase the complexity of a database design, especially if the data model is not well understood or if the normalization process is not carried out correctly.</li>
+</ul>
 
