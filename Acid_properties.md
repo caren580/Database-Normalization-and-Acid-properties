@@ -1,4 +1,4 @@
-## ACID PROPERTIES
+# ACID PROPERTIES
 ACID is a set of properties that ensure reliable transactions in a database system. It stands for Atomicity, Consistency, Isolation, and Durability. These properties ensure that database transactions are processed reliably and help in maintaining the integrity of data across concurrent transactions.
 
 ## ATOMICITY
@@ -22,5 +22,5 @@ Durability ensures that even if a system crashes, the database can recover to a 
 3. Concurrency Control:
 ACID properties provide a solid framework for managing concurrent transactions. Isolation ensures that transactions do not interfere with each other, preventing data anomalies such as lost updates, temporary inconsistency, and uncommitted data.
 
-### conclusion
+### Conclusion
 The ACID properties in DBMS provide the backbone for maintaining data consistency, integrity, and reliability in the face of transaction failures, concurrent operations, and system crashes. In today's digital world, ACID properties ensure that database systems can handle complex transactions securely, reliably, and efficiently, which is why they remain a cornerstone of data management systems used in a variety of critical applications.
