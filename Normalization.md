@@ -19,3 +19,16 @@ Here are several factors that drive the need for normalization;
 <li>Other factors that drive the need for normalization are partial dependencies and transitive dependencies, in which partial dependencies can lead to data redundancy and update anomalies, and transitive dependencies can lead to data anomalies. We will be looking at how these dependencies can be dealt with to ensure database normalization in the coming sections.</li>
 </ul>
 
+## Different types of normalization
+<ul>
+<li>0NF —  (Not Normalized Form) requires no additional assurances except that a record has a primary key that uniquely identifies it.</li>
+<li>1NF — requires that no field has a table as its value. The original definition was even more strict: that a field value is atomic (that is — not compound). As it is with current RDBMSes, and especially PostgreSQL this presents a rather challenging requirement; let’s stick with the «no table as value» form and discuss what atomic, compound and opaque mean later.<li>
+<li>2NF — requires that (for a compound primary key) no non-key attribute depends just on part of the primary key. In other words, non-key attributes must depend on the whole primary key. If such a partial dependency is identified, the table must be split, and both dependent attribute(s) and part of the primary key it depends upon moved to a separate table.</li>
+<li>3NF — requires that there is no transitive dependency (through another field depending directly on the primary key) on the primary key. This means that if the values of two or more fields consistently appear together, they should be moved to a separate table, and one of them should be made a key, so that information repetition is avoided.<li>
+<li>BCNF — Boyce-Codd Normal Form aka 3.5NF is just a bit of a stronger version of 3NF; often, a table in 3NF is also compliant with BCNF.
+It requires that no part of a primary key is functionally dependent on a non-key attribute. The difference is quite subtle — till now I have been talking about non-key attributes which are dependent on key attributes. Now it is the opposite way round.</li>
+<li>4NF — requires that there is no multivalued dependency on non-super key attributes<li>
+<li>5NF — requires that there are no joint dependencies that do not have only superkey components. In other words a table is in 5NF if it cannot be split (reduced) further into smaller tables that have different (smaller) key without losing information.<li>
+<li>6NF — requires that a row must not contain more than one non-primary attribute in addition to a primary key. As impractical as this normal form might seem, it has its applications in e.g. data warehouses and very sparse schemas, but it is most efficient in so-called columnar storage engines. For typical OLTP, 6NF is not very practical and is too close for comfort to the dreaded EAV antipattern.</li>
+
+</ul>
