@@ -13,3 +13,11 @@ Consistency ensures that a transaction can only bring the database from one vali
 ## DURABILITY
 Durability ensures that once a transaction has been committed, it will remain so, even in the event of power loss, crashes, or errors. In PostgreSQL, this is managed through the use of write-ahead logging (WAL), which records changes before they are applied to the database.
 ![Properties image](ACID_PROPERTIES.webp)
+
+## How ACID Properties Impact DBMS Design and Operation
+1. Data Integrity and Consistency
+ACID properties safeguard the data integrity of a DBMS by ensuring that transactions either complete successfully or leave no trace if interrupted. They prevent partial updates from corrupting the data and ensure that the database transitions only between valid states.
+2. Recovery and Fault Tolerance
+Durability ensures that even if a system crashes, the database can recover to a consistent state. Thanks to the Atomicity and Durability properties, if a transaction fails midway, the database remains in a consistent state.
+3. Concurrency Control
+ACID properties provide a solid framework for managing concurrent transactions. Isolation ensures that transactions do not interfere with each other, preventing data anomalies such as lost updates, temporary inconsistency, and uncommitted data.
